@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from sch import codex, query_args
 
-TAGS = ["google", "media"]
+TAGS = ["public", "google", "media"]
 
 
 @codex.command("yt", tags=TAGS)

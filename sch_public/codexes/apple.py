@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from sch import codex
 
-TAGS = ["apple"]
+TAGS = ["public", "apple"]
 
 
 @codex.command("icloud", tags=TAGS)

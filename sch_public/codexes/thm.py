@@ -3,7 +3,7 @@ from sch import codex
 
 # https://github.com/danielmiessler/SecLists/tree/master
 
-TAGS = ["security"]
+TAGS = ["public", "security"]
 
 
 codex.add_bookmark("thm", "https://tryhackme.com", "TryHackMe", tags=TAGS)

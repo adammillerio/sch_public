@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from sch import codex, query_args
 
-TAGS = ["lab", "network", "dn42", "project"]
+TAGS = ["public", "lab", "network", "dn42", "project"]
 
 
 @codex.command("dn42", tags=TAGS)
