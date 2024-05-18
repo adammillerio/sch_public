@@ -4,7 +4,7 @@ from urllib.parse import quote_plus
 
 from sch import codex
 
-TAGS = ["games"]
+TAGS = ["public", "games"]
 
 
 @codex.command("t", tags=TAGS)

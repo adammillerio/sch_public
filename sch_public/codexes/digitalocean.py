@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from sch import codex
 
-TAGS = ["lab"]
+TAGS = ["public", "lab"]
 
 
 codex.add_bookmark(

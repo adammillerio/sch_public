@@ -1,6 +1,6 @@
 from sch import codex
 
-TAGS = ["obsidian", "docs"]
+TAGS = ["public", "obsidian", "docs"]
 
 
 @codex.command("obsidian", tags=TAGS)

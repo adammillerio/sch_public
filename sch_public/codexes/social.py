@@ -4,7 +4,7 @@ from typing import Optional
 
 from sch import codex, query_args
 
-TAGS = ["social"]
+TAGS = ["public", "social"]
 
 
 @codex.command("reddit", tags=TAGS)

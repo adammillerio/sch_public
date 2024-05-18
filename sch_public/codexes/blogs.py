@@ -3,7 +3,7 @@ from typing import Iterable
 
 from sch import codex, query_args, command, Command, format_doc
 
-TAGS = ["blogs", "writing"]
+TAGS = ["public", "blogs", "writing"]
 
 
 def blog_command(
@@ -11,6 +11,7 @@ def blog_command(
 ) -> Command:
     tags = set(tags)
     tags.add("blogs")
+    tags.add("public")
 
     @command(tags=tags)
     @format_doc(short_help=short_help, url=url, search_url=search_url)

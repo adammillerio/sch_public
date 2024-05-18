@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from sch import codex, query_args
 
-TAGS = ["wiki"]
+TAGS = ["public", "wiki"]
 
 
 @codex.command("wiki", tags=TAGS)
