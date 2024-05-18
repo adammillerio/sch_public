@@ -5,7 +5,7 @@ from urllib.parse import quote_plus
 
 from sch import codex, query_args, bookmark, command, Command, format_doc
 
-TAGS = ["google"]
+TAGS = ["public", "google"]
 
 
 def google_command(site: str, search_url: str) -> Command:

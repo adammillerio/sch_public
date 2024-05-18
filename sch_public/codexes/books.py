@@ -3,7 +3,7 @@ from typing import List
 
 from sch import codex, query_args
 
-TAGS = ["books"]
+TAGS = ["public", "books"]
 
 
 # TODO: (*) should be added to all commands which take *args as an alternative

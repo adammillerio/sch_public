@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from sch import codex, bookmark, command, Command
 
-TAGS = ["music", "radio"]
+TAGS = ["public", "music", "radio"]
 
 stations = {
     "kexp": (

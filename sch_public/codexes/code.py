@@ -8,7 +8,7 @@ from pyre_extensions import none_throws
 from sch import codex, command, Command, format_doc
 
 
-TAGS = ["code"]
+TAGS = ["public", "code"]
 
 
 class Repo(NamedTuple):

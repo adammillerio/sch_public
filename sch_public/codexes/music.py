@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from sch import codex, query_args, escape_args
 
-TAGS = ["music", "social"]
+TAGS = ["public", "music", "social"]
 
 
 @codex.command("rym", tags=TAGS)

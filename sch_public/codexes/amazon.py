@@ -3,7 +3,7 @@ from typing import List
 
 from sch import codex, query_args
 
-TAGS = ["amazon"]
+TAGS = ["public", "amazon"]
 
 
 SHOPPING_TAGS: List[str] = TAGS + ["shopping"]

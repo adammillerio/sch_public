@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from sch import codex, query_args
 
-TAGS = ["shopping"]
+TAGS = ["public", "shopping"]
 
 
 @codex.command("ebay", tags=TAGS)
