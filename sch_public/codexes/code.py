@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 from typing import Callable, Optional, NamedTuple
 
-from urllib.parse import quote_plus
-
 from pyre_extensions import none_throws
 
-from sch import codex, command, Command, format_doc
+from sch import codex, command, Command, format_doc, query_args
 
 
 TAGS = ["public", "code"]
@@ -63,7 +61,7 @@ repos = {
 
 
 def github_search_url(repo: str, *args: str) -> str:
-    query = quote_plus(f"repo:{repo} {' '.join(args)}")
+    query = query_args(f"repo:{repo}", *args)
 
     return f"https://github.com/search?type=code&q={query}"
 
@@ -101,9 +99,7 @@ def github_search_all(*args: str) -> str:
     return https://github.com/search?type=code&q={*args}
     """
 
-    query = quote_plus(" ".join(args))
-
-    return f"https://github.com/search?type=code&q={query}"
+    return f"https://github.com/search?type=code&q={query_args(*args)}"
 
 
 def code_command(
@@ -198,7 +194,6 @@ for name, config in repos.items():
 
 
 codex.add_bookmark("sourcehut", "https://sr.ht/", "sourcehut git host", tags=TAGS)
-codex.add_bookmark("irc", "https://chat.sr.ht", "sourcehut irc bouncer", tags=TAGS)
 
 
 @codex.command("commonmark", tags=TAGS)
@@ -251,3 +246,38 @@ codex.add_bookmark(
     "solarized color pallette",
     tags=TAGS,
 )
+
+
+@codex.command("python")
+def python(*args: str) -> str:
+    """python programming language
+
+    if args:
+        return https://docs.python.org/3/search.html?q={*args}
+    else:
+        return https://docs.python.org/3/
+    """
+
+    if args:
+        return f"https://docs.python.org/3/search.html?q={query_args(*args)}"
+    else:
+        return "https://docs.python.org/3/"
+
+
+python.add_bookmark("match", "https://peps.python.org/pep-0636/", "pattern matching")
+
+
+@codex.command("pypi")
+def pypi(*args: str) -> str:
+    """python package index
+
+    if args:
+        return https://pypi.org/search/?q={*args)
+    else:
+        return https://pypi.org/
+    """
+
+    if args:
+        return f"https://pypi.org/search/?q={query_args(*args)}"
+    else:
+        return "https://pypi.org/"
