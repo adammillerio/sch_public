@@ -36,7 +36,7 @@ def google_command(site: str, search_url: str) -> Command:
 site_configs = {
     "gdocs": ("docs", "/document/u/0/?q="),
     "gdrive": ("drive", "/drive/u/0/search?q="),
-    "g": ("search", "/search?q="),
+    "g": ("search", "/search?udm=14&q="),
     "gmail": ("mail", "/mail/u/0/#search/"),
     "gmaps": ("maps", "/maps/search/"),
 }

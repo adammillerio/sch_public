@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 from typing import List
-from urllib.parse import quote_plus
 
-from sch import codex
+from sch import codex, query_args
 
 TAGS = ["public", "games"]
 
@@ -12,15 +11,13 @@ def terraria(*args: str) -> str:
     """search or go to terraria wiki
 
     if args:
-        return https://terraria.fandom.com/wiki/Special:Search?scope=internal&navigationSearch=true&query={query}
+        return https://terraria.fandom.com/wiki/Special:Search?scope=internal&navigationSearch=true&query={*args}
     else:
         return https://terraria.fandom.com/wiki/Terraria_Wiki
     """
 
     if args:
-        query = quote_plus(" ".join(args))
-
-        return f"https://terraria.fandom.com/wiki/Special:Search?scope=internal&navigationSearch=true&query={query}"
+        return f"https://terraria.fandom.com/wiki/Special:Search?scope=internal&navigationSearch=true&query={query_args(*args)}"
     else:
         return "https://terraria.fandom.com/wiki/Terraria_Wiki"
 
@@ -49,11 +46,7 @@ def ffxiv_wiki(*args: str) -> str:
     """
 
     if args:
-        query = quote_plus(" ".join(args))
-
-        return (
-            f"https://na.finalfantasyxiv.com/lodestone/playguide/db/search/?q={query}"
-        )
+        return f"https://na.finalfantasyxiv.com/lodestone/playguide/db/search/?q={query_args(*args)}"
     else:
         return "https://na.finalfantasyxiv.com/lodestone/playguide/db"
 
@@ -69,9 +62,7 @@ def ffxiv_wiki_gamerescape(*args: str) -> str:
     """
 
     if args:
-        query = quote_plus(" ".join(args))
-
-        return f"https://ffxiv.gamerescape.com/?&title=Special%3ASearch&search={query}"
+        return f"https://ffxiv.gamerescape.com/?&title=Special%3ASearch&search={query_args(*args)}"
     else:
         return "https://ffxiv.gamerescape.com/wiki/Main_Page"
 
@@ -87,9 +78,7 @@ def ffxiv_wiki_consolegameswiki(*args: str) -> str:
     """
 
     if args:
-        query = quote_plus(" ".join(args))
-
-        return f"https://ffxiv.consolegameswiki.com/mediawiki/index.php?title=Special%3ASearch&go=Go&search={query}"
+        return f"https://ffxiv.consolegameswiki.com/mediawiki/index.php?title=Special%3ASearch&go=Go&search={query_args(*args)}"
     else:
         return "https://ffxiv.consolegameswiki.com/wiki/FF14_Wiki"
 
@@ -110,3 +99,19 @@ codex.add_bookmark(
     "the game eating she-monster",
     tags=BLOG_TAGS,
 )
+
+
+@codex.command("steam", tags=TAGS)
+def steam(*args: str) -> str:
+    """game store and client
+
+    if args:
+        return https://store.steampowered.com/search/?term={*args}
+    else:
+        return https://store.steampowered.com
+    """
+
+    if args:
+        return f"https://store.steampowered.com/search/?term={query_args(*args)}"
+    else:
+        return "https://store.steampowered.com"

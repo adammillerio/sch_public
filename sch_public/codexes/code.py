@@ -281,3 +281,8 @@ def pypi(*args: str) -> str:
         return f"https://pypi.org/search/?q={query_args(*args)}"
     else:
         return "https://pypi.org/"
+
+
+pypi.add_bookmark(
+    "classifiers", "https://pypi.org/classifiers/", "python package classifiers"
+)
