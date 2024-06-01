@@ -3,6 +3,9 @@
   "source_directories": [
     "."
   ],
+  "search_path": [
+    "../sch"
+  ],
   "exclude": [
     ".*\/.sl\/.*"
   ],

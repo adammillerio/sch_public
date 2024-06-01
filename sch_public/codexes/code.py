@@ -211,7 +211,9 @@ def commonmark() -> str:
     return "https://spec.commonmark.org/current/"
 
 
-pandoc: Command = code_command("jgm/pandoc", "https://pandoc.org")
+pandoc: Command = codex.add_command(
+    code_command("jgm/pandoc", "https://pandoc.org"), "pandoc"
+)
 
 
 @pandoc.command("commonmark_x")
@@ -236,52 +238,36 @@ pandoc.add_bookmark(
     "manual", "https://pandoc.org/MANUAL.html", "pandoc CLI manual", tags=TAGS
 )
 
-codex.add_command(pandoc, "pandoc")
-
 codex.add_bookmark("regex", "https://regex101.com", "regex 101 regex tester", tags=TAGS)
 
-codex.add_bookmark(
+solarized: Command = codex.add_bookmark(
     "solarized",
     "https://en.wikipedia.org/wiki/Solarized",
     "solarized color pallette",
     tags=TAGS,
 )
 
+solarized.add_bookmark(
+    "css",
+    "https://thomasf.github.io/solarized-css/",
+    "css stylesheet",
+)
 
-@codex.command("python")
-def python(*args: str) -> str:
-    """python programming language
 
-    if args:
-        return https://docs.python.org/3/search.html?q={*args}
-    else:
-        return https://docs.python.org/3/
-    """
-
-    if args:
-        return f"https://docs.python.org/3/search.html?q={query_args(*args)}"
-    else:
-        return "https://docs.python.org/3/"
+python: Command = codex.add_search(
+    "python",
+    "https://docs.python.org/3/search.html?q=",
+    "https://docs.python.org/3/",
+    "python programming language",
+)
 
 
 python.add_bookmark("match", "https://peps.python.org/pep-0636/", "pattern matching")
 
 
-@codex.command("pypi")
-def pypi(*args: str) -> str:
-    """python package index
-
-    if args:
-        return https://pypi.org/search/?q={*args)
-    else:
-        return https://pypi.org/
-    """
-
-    if args:
-        return f"https://pypi.org/search/?q={query_args(*args)}"
-    else:
-        return "https://pypi.org/"
-
+pypi: Command = codex.add_search(
+    "pypi", "https://pypi.org/search/?q=", "https://pypi.org/", "python_package_index"
+)
 
 pypi.add_bookmark(
     "classifiers", "https://pypi.org/classifiers/", "python package classifiers"

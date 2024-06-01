@@ -1,26 +1,16 @@
-from sch import codex
+#!/usr/bin/env python3
+from sch import codex, Command
 
 TAGS = ["public", "obsidian", "docs"]
 
 
-@codex.command("obsidian", tags=TAGS)
-def obsidian() -> str:
-    """obsidian note taking app
+obsidian: Command = codex.add_bookmark(
+    "obsidian", "https://help.obsidian.md/Home", "obsidian note taking app", tags=TAGS
+)
 
-    return https://help.obsidian.md/Home
-    """
-
-    return "https://help.obsidian.md/Home"
-
-
-@obsidian.command("uri")
-def obsidian_uri() -> str:
-    """obsidian uri reference
-
-    sch uses Obsidian URIs to generate redirect links to notes inside of the
-    Obsidian vault.
-
-    return https://help.obsidian.md/Extending+Obsidian/Obsidian+URI
-    """
-
-    return "https://help.obsidian.md/Extending+Obsidian/Obsidian+URI"
+obsidian.add_bookmark(
+    "uri",
+    "https://help.obsidian.md/Extending+Obsidian/Obsidian+URI",
+    "obsidian uri reference",
+    tags=TAGS,
+)

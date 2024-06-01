@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-from typing import Optional
-
-from urllib.parse import quote_plus
-
-from sch import codex, query_args, bookmark, command, Command, format_doc
+from sch import codex, Command, search
 
 TAGS = ["public", "google"]
 
@@ -14,23 +10,12 @@ def google_command(site: str, search_url: str) -> Command:
     else:
         domain: str = f"{site}.google.com"
 
-    @command(tags=TAGS)
-    @format_doc(site=site, domain=domain, search_url=search_url)
-    def google_site(*args: str) -> str:
-        """search or go to google {site}
-
-        if args:
-            return https://{domain}{search_url}{{*args}}
-        else:
-            return https://{domain}
-        """
-
-        if args:
-            return f"https://{domain}{search_url}{query_args(*args)}"
-        else:
-            return f"https://{domain}"
-
-    return google_site
+    return search(
+        f"https://{domain}{search_url}",
+        f"https://{domain}",
+        f"google {site}",
+        tags=TAGS,
+    )
 
 
 site_configs = {
