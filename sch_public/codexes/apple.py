@@ -1,25 +1,25 @@
 #!/usr/bin/env python3
-from sch import codex
+from typing import List
+
+from sch import codex, Command, bookmark
 
 TAGS = ["public", "apple"]
 
+apple: Command = codex.add_bookmark(
+    "apple", "https://apple.com", "tim apple", tags=TAGS
+)
 
-@codex.command("icloud", tags=TAGS)
-def icloud() -> str:
-    return "https://www.icloud.com"
+
+FINANCE_TAGS: List[str] = TAGS + ["finances"]
+apple.add_bookmark(
+    "card", "https://card.apple.com", "apple card management", tags=FINANCE_TAGS
+)
 
 
-@codex.command("mail", tags=TAGS)
-def icloud_mail() -> str:
-    """icloud e-mail
-
-    iCloud's web UI doesn't have the ability to go to specific searches or folders
-    via URL, so this is just a bookmark for now.
-
-    return https://www.icloud.com/mail/
-    """
-
-    return "https://www.icloud.com/mail/"
-
+icloud: Command = codex.add_bookmark(
+    "icloud", "https://www.icloud.com", "iCloud", tags=TAGS
+)
 
 icloud.add_bookmark("settings", "https://www.icloud.com/settings/", "settings")
+
+codex.add_bookmark("mail", "https://www.icloud.com/mail/", "icloud e-mail", tags=TAGS)

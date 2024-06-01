@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from typing import List
 
-from sch import codex, query_args
+from sch import codex, Command
 
 TAGS = ["public", "amazon"]
 
@@ -9,20 +9,13 @@ TAGS = ["public", "amazon"]
 SHOPPING_TAGS: List[str] = TAGS + ["shopping"]
 
 
-@codex.command("amazon", tags=SHOPPING_TAGS)
-def amazon(*args: str) -> str:
-    """search or go to amazon
-
-    if args:
-        return https://amazon.com/s/?field-keywords={*args}
-    else:
-        return https://amazon.com
-    """
-
-    if args:
-        return f"https://amazon.com/s/?field-keywords={query_args(*args)}"
-    else:
-        return "https://amazon.com"
+amazon: Command = codex.add_search(
+    "amazon",
+    "https://amazon.com/s/?field-keywords=",
+    "https://amazon.com",
+    "search or go to amazon",
+    tags=SHOPPING_TAGS,
+)
 
 
 amazon.add_bookmark(

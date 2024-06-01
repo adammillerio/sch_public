@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from typing import Iterable
 
-from sch import codex, query_args, command, Command, format_doc
+from sch import codex, search, Command
 
 TAGS = ["public", "blogs", "writing"]
 
@@ -13,23 +13,7 @@ def blog_command(
     tags.add("blogs")
     tags.add("public")
 
-    @command(tags=tags)
-    @format_doc(short_help=short_help, url=url, search_url=search_url)
-    def blog_site(*args: str) -> str:
-        """{short_help}
-
-        if args:
-            return {search_url}{{*args}}
-        else:
-            return {url}
-        """
-
-        if args:
-            return f"{search_url}{query_args(*args)}"
-        else:
-            return url
-
-    return blog_site
+    return search(search_url, url, short_help, tags=TAGS)
 
 
 blogs = {
