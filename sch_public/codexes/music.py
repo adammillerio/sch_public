@@ -1,59 +1,37 @@
 #!/usr/bin/env python3
-from sch import codex, query_args, escape_args
+from sch import codex, Command
 
 TAGS = ["public", "music", "social"]
 
 
-@codex.command("rym", tags=TAGS)
-def rym(*args: str) -> str:
-    """search or go to rate your music aggregator
-
-    if args:
-        return https://rateyourmusic.com/search?searchtype=&searchterm={*args}
-    else:
-        return https://rateyourmusic.com
-    """
-
-    if args:
-        return f"https://rateyourmusic.com/search?searchtype=&searchterm={query_args(*args)}"
-    else:
-        return "https://rateyourmusic.com"
+rym: Command = codex.add_search(
+    "rym",
+    "https://rateyourmusic.com/search?searchtype=&searchterm=",
+    "https://rateyourmusic.com",
+    "rate your music",
+    tags=TAGS,
+)
 
 
-@codex.command("lastfm", tags=TAGS)
-def lastfm(*args: str) -> str:
-    """search or go to last.fm listening tracker
-
-    if args:
-        return https://www.last.fm/search?q={*args}
-    else:
-        return https://last.fm
-    """
-
-    if args:
-        return f"https://last.fm/search?q={query_args(*args)}"
-    else:
-        return "https://last.fm"
+lastfm: Command = codex.add_search(
+    "lastfm",
+    "https://last.fm/search?q=",
+    "https://last.fm",
+    "last.fm listening tracker",
+    tags=TAGS,
+)
 
 
-@codex.command("music", tags=TAGS)
-def music() -> str:
-    """it's music"""
-
-    return "https://www.youtube.com/watch?v=Q5jZXE3bNPg"
+music: Command = codex.add_bookmark(
+    "music", "https://www.youtube.com/watch?v=Q5jZXE3bNPg", "it's music", tags=TAGS
+)
 
 
-@codex.command("deezer", tags=TAGS)
-def deezer(*args: str) -> str:
-    """hi-fi music streaming catalog
-
-    if args:
-        return https://www.deezer.com/search/*args
-    else:
-        return https://www.deezer.com/us/channels/explore
-    """
-
-    if args:
-        return f"https://www.deezer.com/search/{escape_args(*args)}"
-    else:
-        return "https://www.deezer.com/us/channels/explore"
+deezer: Command = codex.add_search(
+    "deezer",
+    "https://www.deezer.com/search/",
+    "https://www.deezer.com/us/channels/explore",
+    "hi-fi music streaming catalog",
+    escaped=True,
+    tags=TAGS,
+)

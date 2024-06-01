@@ -46,6 +46,6 @@ sure to shut it down with `pyre kill` when finished.
 Format code with the [black](https://github.com/psf/black) formatter:
 
 ```bash
-black click_tree
+black sch_public
 All done! ✨ 🍰 ✨
 ```
