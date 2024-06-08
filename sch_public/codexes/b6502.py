@@ -2,7 +2,7 @@
 from sch import codex, Command
 
 
-TAGS = ["project", "code", "6502"]
+TAGS = ["public", "project", "code", "6502"]
 
 b6502: Command = codex.add_bookmark(
     "6502",
