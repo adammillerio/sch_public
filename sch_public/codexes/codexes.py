@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from sch_public.codexes.amazon import __name__
 from sch_public.codexes.apple import __name__
+from sch_public.codexes.b6502 import __name__
 from sch_public.codexes.blogs import __name__
 from sch_public.codexes.books import __name__
 from sch_public.codexes.chef import __name__
@@ -13,6 +14,7 @@ from sch_public.codexes.games import __name__
 from sch_public.codexes.google import __name__
 from sch_public.codexes.music import __name__
 from sch_public.codexes.obsidian import __name__
+from sch_public.codexes.printing import __name__
 from sch_public.codexes.radio import __name__
 from sch_public.codexes.social import __name__
 from sch_public.codexes.thm import __name__
