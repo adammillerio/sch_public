@@ -40,8 +40,14 @@ codex.add_bookmark("bsky", "https://bsky.app", "bluesky social", tags=TAGS)
 codex.add_bookmark(
     "lobsters", "https://lobste.rs", "lobste.rs link aggregator", tags=TAGS
 )
-codex.add_bookmark(
-    "hn", "https://news.ycombinator.com", "hacker news link aggregator", tags=TAGS
+codex.add_search(
+    "hackernews",
+    "https://hn.algolia.com/?dateRange=all&page=0&prefix=true&sort=byDate&type=story&query=",
+    "https://news.ycombinator.com",
+    "hacker news link aggregator",
+    escaped=True,
+    tags=TAGS,
+    aliases=["hn"],
 )
 codex.add_bookmark("facebook", "https://facebook.com", "zuck's party palace", tags=TAGS)
 codex.add_bookmark(
