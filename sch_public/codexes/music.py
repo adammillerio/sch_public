@@ -35,3 +35,16 @@ deezer: Command = codex.add_search(
     escaped=True,
     tags=TAGS,
 )
+
+bandcamp: Command = codex.add_search(
+    "bandcamp",
+    "https://bandcamp.com/search?item_type=&q=",
+    "https://bandcamp.com",
+    "indie music store",
+    tags=TAGS,
+    aliases=["bc"],
+)
+
+bandcamp.add_bookmark(
+    "friday", "https://isitbandcampfriday.com", "is it bandcamp friday?"
+)

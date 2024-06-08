@@ -49,6 +49,12 @@ blogs = {
         "retro emulation and tech blog",
         ["tech", "retro", "games", "hardware"],
     ),
+    "pagedout": (
+        "https://pagedout.institute/?page=issues.php",
+        "",
+        "one-pager programming articles",
+        ["tech", "code"],
+    ),
 }
 
 for name, config in blogs.items():

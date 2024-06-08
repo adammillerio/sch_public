@@ -57,6 +57,10 @@ repos = {
         name="c0fec0de/anytree", docs="https://anytree.readthedocs.io/en/stable/"
     ),
     "tup": Repo(name="gittup/tup", docs="https://gittup.org/tup/"),
+    "jupyterlab": Repo(
+        name="jupyterlab/jupyterlab",
+        docs="https://jupyterlab.readthedocs.io/en/latest/",
+    ),
 }
 
 
@@ -263,6 +267,9 @@ python: Command = codex.add_search(
 
 
 python.add_bookmark("match", "https://peps.python.org/pep-0636/", "pattern matching")
+python.add_bookmark(
+    "functional", "https://docs.python.org/3/howto/functional.html", "functional howto"
+)
 
 
 pypi: Command = codex.add_search(
@@ -271,4 +278,11 @@ pypi: Command = codex.add_search(
 
 pypi.add_bookmark(
     "classifiers", "https://pypi.org/classifiers/", "python package classifiers"
+)
+
+jupyter: Command = codex.add_command(
+    code_command(
+        "jupyter/notebook", "https://jupyter-notebook.readthedocs.io/en/stable/"
+    ),
+    "jupyter",
 )
