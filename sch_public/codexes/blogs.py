@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from typing import Iterable
+from typing import Any, Iterable
 
 from sch import codex, search, Command
 
@@ -12,8 +12,9 @@ def blog_command(
     tags = set(tags)
     tags.add("blogs")
     tags.add("public")
+    tags.add("writing")
 
-    return search(search_url, url, short_help, tags=TAGS)
+    return search(search_url, url, short_help, tags=tags)
 
 
 blogs = {
@@ -21,25 +22,25 @@ blogs = {
         "https://aftermath.site",
         "https://aftermath.site/search?s=",
         "gaming blog",
-        ["games"],
+        ["games", "subscription"],
     ),
     "hellgate": (
         "https://hellgatenyc.com",
         "https://hellgatenyc.com/search?s=",
         "nyc news blog",
-        ["nyc"],
+        ["nyc", "subscription"],
     ),
     "404": (
         "https://www.404media.co/",
         # No URL based search, so this is more or less just a google "proxy"
-        "https://www.google.com/search?q=404media+",
+        "https://www.google.com/search?q=site:404media.co+",
         "tech blog",
         ["tech"],
     ),
     "express": (
         "https://nicole.express/",
         # No URL based search, so this is more or less just a google "proxy"
-        "https://www.google.com/search?q=nicole+express+",
+        "https://www.google.com/search?q=site:nicole.express+",
         "retro games blog",
         ["tech", "retro", "games", "hardware"],
     ),
@@ -51,9 +52,15 @@ blogs = {
     ),
     "pagedout": (
         "https://pagedout.institute/?page=issues.php",
-        "",
+        "https://www.google.com/search?q=site:pagedout.institute+",
         "one-pager programming articles",
         ["tech", "code"],
+    ),
+    "hydra": (
+        "https://flaminghydra.com",
+        "https://www.google.com/search?q=site:flaminghydra.com+",
+        "daily newsletter",
+        ["subscription"],
     ),
 }
 
