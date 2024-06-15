@@ -73,3 +73,11 @@ codex.add_search(
     "game store and client",
     tags=TAGS,
 )
+
+backloggery: Command = codex.add_bookmark(
+    "backloggery", "https://backloggery.com", "game backlog manager", tags=TAGS
+)
+
+glitchwave: Command = codex.add_bookmark(
+    "glitchwave", "https://glitchwave.com", "game database", tags=TAGS
+)

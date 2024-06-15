@@ -12,6 +12,10 @@ b6502: Command = codex.add_bookmark(
     aliases=["eater"],
 )
 
+b6502.add_bookmark("start", "https://eater.net/start", "kit starter guides")
+
+b6502.add_bookmark("clock", "https://eater.net/8bit/clock", "clock kit guide")
+
 b6502.add_bookmark(
     "instructions",
     "https://www.masswerk.at/6502/6502_instruction_set.html",
