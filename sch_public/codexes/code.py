@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from typing import Callable, Optional, NamedTuple
+from typing import Callable, Optional, NamedTuple, Iterable
 
 from pyre_extensions import none_throws
 
@@ -13,6 +13,7 @@ class Repo(NamedTuple):
     name: str
     docs: str
     errors: Optional[str] = None
+    tags: Optional[Iterable[str]] = None
 
 
 repos = {
@@ -61,6 +62,11 @@ repos = {
         name="jupyterlab/jupyterlab",
         docs="https://jupyterlab.readthedocs.io/en/latest/",
     ),
+    "logisim": Repo(
+        name="logisim-evolution/logisim-evolution",
+        docs="https://github.com/logisim-evolution/logisim-evolution/blob/main/docs/docs.md",
+        tags=["6502"],
+    ),
 }
 
 
@@ -107,10 +113,19 @@ def github_search_all(*args: str) -> str:
 
 
 def code_command(
-    repo_name: str, repo_docs: str, repo_errors: Optional[str] = None
+    repo_name: str,
+    repo_docs: str,
+    repo_errors: Optional[str] = None,
+    repo_tags: Optional[Iterable[str]] = None,
 ) -> Command:
+    if repo_tags:
+        tags = set(repo_tags)
+        tags.add("public")
+        tags.add("code")
+    else:
+        tags = TAGS
 
-    @command(tags=TAGS)
+    @command(tags=tags)
     @format_doc(repo_name=repo_name)
     def code_repo(*args: str) -> str:
         """{repo_name} on github
