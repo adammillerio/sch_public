@@ -12,6 +12,7 @@ from sch_public.codexes.dn42 import __name__
 from sch_public.codexes.ebay import __name__
 from sch_public.codexes.games import __name__
 from sch_public.codexes.google import __name__
+from sch_public.codexes.govt import __name__
 from sch_public.codexes.music import __name__
 from sch_public.codexes.obsidian import __name__
 from sch_public.codexes.printing import __name__

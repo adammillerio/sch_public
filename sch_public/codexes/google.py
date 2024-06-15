@@ -28,3 +28,21 @@ site_configs = {
 
 for site, config in site_configs.items():
     codex.add_command(google_command(*config), site)
+
+
+@codex.command("gvoice", tags=TAGS)
+def gvoice(*args: str) -> str:
+    """google voice
+
+    if args:
+        return https://voice.google.com/u/0/search?from=[]&q=[{*args}]
+    else:
+        return https://voice.google.com
+    """
+
+    if args:
+        quoted_args = ",".join(f'"{arg}"' for arg in args)
+
+        return f"https://voice.google.com/u/0/search?from=[]&q=[{quoted_args}]"
+    else:
+        return "https://voice.google.com"
