@@ -14,7 +14,7 @@ b6502: Command = codex.add_bookmark(
 
 b6502.add_bookmark("start", "https://eater.net/start", "kit starter guides")
 
-b6502.add_bookmark(
+b6502_breadboarding: Command = b6502.add_bookmark(
     "breadboarding",
     "https://www.youtube.com/watch?v=PE-_rJqvDhQ",
     "breadboarding tips & tricks",
@@ -34,11 +34,18 @@ b6502_clock_video: Command = b6502_clock.add_bookmark(
     "8-bit computer playlist (includes clock)",
 )
 
-b6502_clock_video.add_bookmark(
+b6502_clock_video_1: Command = b6502_clock_video.add_bookmark(
     "1",
     "https://www.youtube.com/watch?v=kRlSFm519Bo",
     "astable 555 timer - 8-bit computer clock - part 1",
 )
+b6502_clock_video_1_circuit: Command = b6502_clock_video_1.add_bookmark(
+    "circuit", "https://www.falstad.com/circuit/e-555square.html", "circuit simulation"
+)
+b6502_clock_video_1_circuit.add_bookmark(
+    "internals", "https://www.falstad.com/circuit/e-555int.html", "circuit internals"
+)
+
 b6502_clock_video.add_bookmark(
     "2",
     "https://www.youtube.com/watch?v=81BgFhm2vz8",
