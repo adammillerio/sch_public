@@ -4,7 +4,7 @@ from sch import codex, Command, search
 TAGS = ["public", "google"]
 
 
-def google_command(site: str, search_url: str) -> Command:
+def google_command(site: str, search_url: str, multi_user: bool = False) -> Command:
     if site == "search":
         domain: str = "google.com"
     else:
@@ -19,6 +19,8 @@ def google_command(site: str, search_url: str) -> Command:
 
 
 site_configs = {
+    # Add the ability to specify the number here as an argument, since it
+    # lets you swap between multiple Google accounts.
     "gdocs": ("docs", "/document/u/0/?q="),
     "gdrive": ("drive", "/drive/u/0/search?q="),
     "g": ("search", "/search?udm=14&q="),

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from typing import Callable, Optional, NamedTuple, Iterable
+from typing import Optional, NamedTuple, Iterable
 
 from pyre_extensions import none_throws
 
@@ -278,6 +278,7 @@ python: Command = codex.add_search(
     "https://docs.python.org/3/search.html?q=",
     "https://docs.python.org/3/",
     "python programming language",
+    tags=TAGS,
 )
 
 
@@ -285,7 +286,15 @@ python.add_bookmark("match", "https://peps.python.org/pep-0636/", "pattern match
 python.add_bookmark(
     "functional", "https://docs.python.org/3/howto/functional.html", "functional howto"
 )
-
+python.add_bookmark(
+    "data", "https://docs.python.org/3/reference/datamodel.html", "data model"
+)
+python.add_bookmark(
+    "freethreading",
+    "https://py-free-threading.github.io",
+    "free-threaded cpython (no gil) info",
+    aliases=["ft"],
+)
 
 pypi: Command = codex.add_search(
     "pypi", "https://pypi.org/search/?q=", "https://pypi.org/", "python_package_index"
@@ -300,4 +309,35 @@ jupyter: Command = codex.add_command(
         "jupyter/notebook", "https://jupyter-notebook.readthedocs.io/en/stable/"
     ),
     "jupyter",
+)
+
+rust: Command = codex.add_search(
+    "rust",
+    "https://doc.rust-lang.org/std/index.html?search=",
+    "https://www.rust-lang.org",
+    "rust programming language",
+    tags=TAGS,
+)
+
+rust.add_bookmark("cheat", "https://cheats.rs", "rust cheat sheet")
+
+rust.add_search(
+    "book",
+    "https://doc.rust-lang.org/stable/book/?search=",
+    "https://doc.rust-lang.org/stable/book/title-page.html",
+    "the rust book",
+)
+
+rust.add_search(
+    "macros",
+    "https://veykril.github.io/tlborm/introduction.html?search=",
+    "https://veykril.github.io/tlborm/introduction.html",
+    "the little book of rust macros",
+)
+
+rust.add_search(
+    "cargo",
+    "https://doc.rust-lang.org/cargo/?search=",
+    "https://doc.rust-lang.org/cargo/index.html",
+    "rust package manager",
 )

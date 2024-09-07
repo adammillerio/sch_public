@@ -3,3 +3,4 @@ __pycache__
 scholar_public.egg-info
 dist
 .pyre
+.ruff_cache

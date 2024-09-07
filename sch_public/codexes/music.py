@@ -48,3 +48,12 @@ bandcamp: Command = codex.add_search(
 bandcamp.add_bookmark(
     "friday", "https://isitbandcampfriday.com", "is it bandcamp friday?"
 )
+
+codex.add_search(
+    "musicbrainz",
+    "https://musicbrainz.org/search?type=artist&method=indexed&query=",
+    "https://musicbrainz.org",
+    "music db",
+    tags=TAGS,
+    aliases=["brainz"],
+)
