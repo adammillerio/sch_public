@@ -28,6 +28,12 @@ b6502_clock.add_bookmark(
     "schematic", "https://eater.net/schematics/clock.png", "circuit diagram"
 )
 
+b6502_clock.add_bookmark(
+    "latch",
+    "https://www.youtube.com/watch?v=KM0DdEaY5sY",
+    "detailed sr latch explanation",
+)
+
 b6502_clock_video: Command = b6502_clock.add_bookmark(
     "video",
     "https://www.youtube.com/playlist?list=PLowKtXNTBypGqImE405J2565dvjafglHU",

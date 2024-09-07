@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# ruff: noqa: F401
+
 from sch import codex, CodexServer
 
 from sch_public.codexes.codexes import __name__

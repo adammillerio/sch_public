@@ -81,3 +81,11 @@ backloggery: Command = codex.add_bookmark(
 glitchwave: Command = codex.add_bookmark(
     "glitchwave", "https://glitchwave.com", "game database", tags=TAGS
 )
+
+gdq: Command = codex.add_bookmark(
+    "gdq", "https://gamesdonequick.com", "games done quick", tags=TAGS
+)
+
+gdq.add_bookmark(
+    "schedule", "https://gamesdonequick.com/schedule/48", "current marathon schedule"
+)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from typing import Any, Iterable
+from typing import Iterable
 
 from sch import codex, search, Command
 
@@ -61,6 +61,18 @@ blogs = {
         "https://www.google.com/search?q=site:flaminghydra.com+",
         "daily newsletter",
         ["subscription"],
+    ),
+    "leadedsolder": (
+        "https://www.leadedsolder.com",
+        "https://www.google.com/search?q=site:leadedsolder.com+",
+        "retro computer restoration",
+        ["tech"],
+    ),
+    "dtdb": (
+        "https://www.downtowndougbrown.com",
+        "https://www.google.com/search?q=site:downtowndougbrown.com+",
+        "linux/embedded projects",
+        ["tech"],
     ),
 }
 

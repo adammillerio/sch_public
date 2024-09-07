@@ -43,9 +43,9 @@ sure to shut it down with `pyre kill` when finished.
 
 ## Formatting
 
-Format code with the [black](https://github.com/psf/black) formatter:
+Format code with the [ruff](https://github.com/astral-sh/ruff) formatter:
 
 ```bash
-black sch_public
-All done! ✨ 🍰 ✨
+ruff format
+27 files left unchanged
 ```

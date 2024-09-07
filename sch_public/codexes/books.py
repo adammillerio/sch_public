@@ -30,3 +30,12 @@ codex.add_search(
     "book aggregator",
     tags=AMZN_TAGS,
 )
+
+
+codex.add_search(
+    "libro",
+    "https://libro.fm/search?utf8=✓&q=",
+    "https://libro.fm",
+    "audiobook store",
+    tags=TAGS,
+)
